@@ -19,9 +19,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define ARM_MATH_CM4
+
 
 #include "arm_math.h"
 #include "arm_const_structs.h"
@@ -32,16 +33,22 @@
 #include "sys_clk_config.h"
 #include "dma.h"
 #include <stdio.h>
+#include "fft.h"
 
 #define buffer_size 		512
 #define half_buffer_size 	256
-#define FFT_BUFFER_SIZE 	512
+#define FFT_BUFFER_SIZE 	256
 #define SAMPLING_RATE 		40000
 #define SCALE_VAL			32767
 
 uint32_t adc_buffer		[buffer_size];
 uint32_t dac_buffer		[buffer_size];
-int16_t Q15_fft_buffer	[buffer_size];
+
+q15_t Q15_fft_buffer_in1[FFT_BUFFER_SIZE];
+q15_t Q15_fft_buffer_out1[FFT_BUFFER_SIZE];
+
+q15_t Q15_fft_buffer_in2[FFT_BUFFER_SIZE];
+q15_t Q15_fft_buffer_out2[FFT_BUFFER_SIZE];
 
 
 uint8_t HALF_BUFFER_FULL_FLAG							=	0;
@@ -62,6 +69,7 @@ int main(void)
   SystemClock_Config();
 
   uart_init();
+  init_fft(FFT_BUFFER_SIZE);
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
@@ -76,33 +84,26 @@ int main(void)
 
   while (1)
   {
-	  if(HALF_BUFFER_FULL_FLAG)
-	  {
-		  printf("Started\n\r");
-		  for (int n = 0; n < half_buffer_size; n++)
-		 	    {
-		 		 int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
-		 		 Q15_fft_buffer[n] = (centered_value * 32767) / 2048;
-		 		 printf("ADC Val: %u, ADC Centered Val: %d, Q15 Val: %d\n\r", adc_buffer[n], centered_value, Q15_fft_buffer[n]);
+	  if (HALF_BUFFER_FULL_FLAG)
+	    {
+		 //Once DMA ADC buffer is half-full, we can perform FFT on the respective buffer.
 
-		 	    }
-		  printf("ended\n\r");
-		  HALF_BUFFER_FULL_FLAG=0;
-	  }
-	  if(FULL_BUFFER_FULL_FLAG)
-	  {
-		  printf("Started 2\n\r");
-		  for (int n = half_buffer_size; n < buffer_size; n++)
-				{
-				 int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
-				 Q15_fft_buffer[n] = (centered_value * 32767) / 2048;
-				 printf("ADC Val: %u, ADC Centered Val: %d, Q15 Val: %d\n\r", adc_buffer[n], centered_value, Q15_fft_buffer[n]);
+	      perform_fft(Q15_fft_buffer_in1, Q15_fft_buffer_out1,FFT_BUFFER_SIZE);
 
-				}
-		 printf("ended 2\n\r");
-		 FULL_BUFFER_FULL_FLAG=0;
 
-	  }
+
+	      //Lower flag inside ISR
+	      HALF_BUFFER_FULL_FLAG = 0;
+
+	    }
+
+	    if (FULL_BUFFER_FULL_FLAG)
+	    {
+
+	      FULL_BUFFER_FULL_FLAG = 0;
+
+	      perform_fft(Q15_fft_buffer_in2, Q15_fft_buffer_out2,FFT_BUFFER_SIZE);
+	    }
 
   }
 
@@ -135,8 +136,15 @@ static void MX_GPIO_Init(void)
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
 
+	//Check to see if main program is still using ADC buffer data
 	if(!HALF_BUFFER_FULL_FLAG)
 	{
+	//convert data from uint_16t to Q15 and store in FFT buffer
+	 for (int n = 0; n < FFT_BUFFER_SIZE; n++)
+	  {
+		int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
+		Q15_fft_buffer_in1[n] = (q15_t)(centered_value << 4);
+	  }
 		HALF_BUFFER_FULL_FLAG=1;
 	}
 
@@ -145,6 +153,11 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	if(!FULL_BUFFER_FULL_FLAG)
 	{
+		for (int n = 0; n < FFT_BUFFER_SIZE; n++)
+		  {
+			int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
+			Q15_fft_buffer_in2[n] = (q15_t)(centered_value << 4);
+		  }
 		FULL_BUFFER_FULL_FLAG=1;
 	}
 }
