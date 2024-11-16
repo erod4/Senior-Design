@@ -34,12 +34,14 @@
 #include "dma.h"
 #include <stdio.h>
 #include "fft.h"
+#include "iir.h"
 
 #define buffer_size 		512
 #define half_buffer_size 	256
 #define FFT_BUFFER_SIZE 	256
-#define SAMPLING_RATE 		40000
+#define ADC_MAX				4095
 #define SCALE_VAL			32767
+#define SAMPLING_RATE		44100
 
 uint32_t adc_buffer		[buffer_size];
 uint32_t dac_buffer		[buffer_size];
@@ -51,12 +53,15 @@ q15_t Q15_fft_buffer_in2[FFT_BUFFER_SIZE];
 q15_t Q15_fft_buffer_out2[FFT_BUFFER_SIZE];
 
 
+q15_t Q15_iir_buffer_out1[FFT_BUFFER_SIZE];
+q15_t Q15_iir_buffer_out2[FFT_BUFFER_SIZE];
+
 uint8_t HALF_BUFFER_FULL_FLAG							=	0;
 uint8_t FULL_BUFFER_FULL_FLAG							=	0;
 
 
 
-static void MX_GPIO_Init(void);
+ static void MX_GPIO_Init(void);
 
 
 int main(void)
@@ -87,22 +92,57 @@ int main(void)
 	  if (HALF_BUFFER_FULL_FLAG)
 	    {
 		 //Once DMA ADC buffer is half-full, we can perform FFT on the respective buffer.
+		  //convert data from uint_16t to Q15 and store in FFT buffer
+		for(int i=0; i<FFT_BUFFER_SIZE;i++)
+		{
+			Q15_fft_buffer_in1[i]=(q15_t)(adc_buffer[i]<<4);
+
+
+		}
+		  printf("Starting FFT\n\r");
 
 	      perform_fft(Q15_fft_buffer_in1, Q15_fft_buffer_out1,FFT_BUFFER_SIZE);
+		  printf("FFT Ended\n\r");
 
+	      //Loop through each value of FFT out buff and print
 
+		  for(int i=0; i<FFT_BUFFER_SIZE;i++)
+		  {
+			  printf("Bin %d: %d \n\r",i+1,Q15_fft_buffer_out1[i]);
+		  }
+		  printf("Ending Program Now\n\r");
+		  HALF_BUFFER_FULL_FLAG = 0;
 
-	      //Lower flag inside ISR
-	      HALF_BUFFER_FULL_FLAG = 0;
+break;
+printf("After Ending Program\n\r");
+
+			//Lower flag raised by ISR
 
 	    }
 
 	    if (FULL_BUFFER_FULL_FLAG)
 	    {
+	    	 //Once DMA ADC buffer is half-full, we can perform FFT on the respective buffer.
+			 //convert data from uint_16t to Q15 and store in FFT buffer
+			for(int i=0; i<FFT_BUFFER_SIZE;i++)
+			{
 
-	      FULL_BUFFER_FULL_FLAG = 0;
+				Q15_fft_buffer_in2[i] = (q15_t)(uint16_t)adc_buffer[i+FFT_BUFFER_SIZE];
+			}
+
+
 
 	      perform_fft(Q15_fft_buffer_in2, Q15_fft_buffer_out2,FFT_BUFFER_SIZE);
+
+	      //Loop through each value of FFT out buff and print
+
+		  for(int i=0; i<FFT_BUFFER_SIZE;i++)
+		  {
+			  printf("%d \n\r",Q15_fft_buffer_out2[i]);
+		  }
+
+		  FULL_BUFFER_FULL_FLAG = 0;
+
 	    }
 
   }
@@ -119,7 +159,7 @@ int main(void)
   * @param None
   * @retval None
   */
-static void MX_GPIO_Init(void)
+ static void MX_GPIO_Init(void)
 {
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
@@ -135,31 +175,35 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
-
+//printf("Sample Complete \n\r");
 	//Check to see if main program is still using ADC buffer data
 	if(!HALF_BUFFER_FULL_FLAG)
 	{
-	//convert data from uint_16t to Q15 and store in FFT buffer
-	 for (int n = 0; n < FFT_BUFFER_SIZE; n++)
-	  {
-		int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
-		Q15_fft_buffer_in1[n] = (q15_t)(centered_value << 4);
-	  }
+
 		HALF_BUFFER_FULL_FLAG=1;
 	}
+
+//	for(int i=0;i<half_buffer_size;i++)
+//	{
+//		dac_buffer[i]=adc_buffer[i];
+//	}
 
 }
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
+
+//for(int i=half_buffer_size;i<buffer_size;i++)
+//{
+//	dac_buffer[i]=adc_buffer[i];
+//}
+//	printf("Sample Complete \n\r");
+
 	if(!FULL_BUFFER_FULL_FLAG)
 	{
-		for (int n = 0; n < FFT_BUFFER_SIZE; n++)
-		  {
-			int16_t centered_value = (int16_t)adc_buffer[n] - 2048;
-			Q15_fft_buffer_in2[n] = (q15_t)(centered_value << 4);
-		  }
+
 		FULL_BUFFER_FULL_FLAG=1;
 	}
+
 }
 
 
@@ -192,6 +236,8 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+	  printf("Error \n\r");
+
   }
   /* USER CODE END Error_Handler_Debug */
 }
