@@ -3,8 +3,9 @@
 #ifndef FFT_H_
 #define FFT_H_
 #include "stm32g4xx_hal.h"
-#include "arm_math.h"
-#include "main.h"
+
+#include "../Inc/arm_math.h"
+#include "../Inc/main.h"
 
 
 
@@ -20,6 +21,8 @@ void init_fft(uint16_t fft_length);
  * @param fft_buffer_out, buffer storing magnitudes of fft output
  * @param buffer_size, length of input buffer
  */
-void perform_fft(q15_t* fft_buffer_in, q15_t* fft_buffer_out,uint16_t buffer_size);
+void perform_fft(float32_t* psrc,float32_t * pdst);
+
+
 
 #endif /* INC_ADC_H_ */
