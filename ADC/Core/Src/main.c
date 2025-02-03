@@ -17,56 +17,49 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
-
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-
+#include <adc.h>
+#include <arm_const_structs.h>
+#include <arm_math.h>
+#include <dac.h>
+#include <dma.h>
+#include <fft.h>
+#include <iir.h>
+#include <main.h>
 #include "arm_math.h"
-#include "arm_const_structs.h"
-#include "UART.h"
-#include "adc.h"
-#include "dac.h"
-#include "timer.h"
-#include "sys_clk_config.h"
-#include "dma.h"
 #include <stdio.h>
-#include "fft.h"
-#include "iir.h"
+#include <sys_clk_config.h>
+#include <timer.h>
+#include <UART.h>
 
 #define buffer_size 		512
 #define half_buffer_size 	256
 #define FFT_BUFFER_SIZE 	256
 
-//#define ADC_MAX				4095
-//#define SAMPLE_RATE_HZ		44100.0f
 
-uint32_t adc_buffer		[buffer_size];
-
+uint32_t adc_buffer				[buffer_size];
+uint32_t dac_buffer				[buffer_size];
 
 
-
-
-
-uint32_t dac_buffer		[buffer_size];
-
-float32_t fft_buffer_out_1	[FFT_BUFFER_SIZE];
+float32_t fft_buffer_out_1		[FFT_BUFFER_SIZE];
 float32_t fft_buffer_in_1		[FFT_BUFFER_SIZE];
 
-float32_t fft_buffer_out_2	[FFT_BUFFER_SIZE];
+float32_t fft_buffer_out_2		[FFT_BUFFER_SIZE];
 float32_t fft_buffer_in_2		[FFT_BUFFER_SIZE];
 
+float32_t ifft_buffer_out_1		[FFT_BUFFER_SIZE];
+float32_t ifft_buffer_out_2		[FFT_BUFFER_SIZE];
+
+float32_t scaling_multiplier_buffer_1 [FFT_BUFFER_SIZE];
+float32_t scaling_multiplier_buffer_2 [FFT_BUFFER_SIZE];
 
 
-uint8_t HALF_BUFFER_FULL_FLAG							=	0;
-uint8_t FULL_BUFFER_FULL_FLAG							=	0;
+
+volatile uint8_t HALF_BUFFER_FULL_FLAG							=	0;
+volatile uint8_t FULL_BUFFER_FULL_FLAG							=	0;
 
 
 
 static void MX_GPIO_Init(void);
-
 
 
 
@@ -85,69 +78,48 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
+  MX_TIM8_Init();
   MX_TIM7_Init();
+  MX_TIM6_Init();
   MX_DAC1_Init();
 
   HAL_ADC_Start_DMA(&hadc1,adc_buffer,buffer_size);
   HAL_DAC_Start_DMA(&hdac1,DAC_CHANNEL_1,dac_buffer,buffer_size,DAC_ALIGN_12B_R);
+  HAL_TIM_Base_Start_IT(&htim8);
   HAL_TIM_Base_Start(&htim7);
-
-
-
+  HAL_TIM_Base_Start(&htim6);
+  __HAL_TIM_SET_COUNTER(&htim6, 0);  // Reset Timer 6 counter to 0
 
 
 
   while (1)
   {
-	  if (HALF_BUFFER_FULL_FLAG)
-	    {
-		 //Once DMA ADC buffer is half-full, we can perform FFT on the respective buffer.
+
+	if(HALF_BUFFER_FULL_FLAG)
+	{
+
+		perform_fft(fft_buffer_in_1, fft_buffer_out_1);
+		perform_ifft(fft_buffer_out_1,ifft_buffer_out_1);
+		for(int i=0; i<half_buffer_size;i++)
+		{
+			dac_buffer[i] = (uint32_t)((ifft_buffer_out_1[i] / 3.3f) * 4095);
+
+		}
+		HALF_BUFFER_FULL_FLAG=0;
+	}
+	if(FULL_BUFFER_FULL_FLAG)
+	{
+		perform_fft(fft_buffer_in_2, fft_buffer_out_2);
+		perform_ifft(fft_buffer_out_2,ifft_buffer_out_2);
+		for(int i=half_buffer_size; i<buffer_size;i++)
+		{
+			dac_buffer[i]= (uint32_t)((ifft_buffer_out_2[i-half_buffer_size] / 3.3f) * 4095);
+
+		}
+		FULL_BUFFER_FULL_FLAG=0;
+	}
 
 
-		  //convert first half of adc buffer into floating point
-		  for(uint16_t i=0; i<half_buffer_size;i++)
-		  {
-			  fft_buffer_in_1[i]=((float32_t)adc_buffer[i] / 4095.0f) * 3.3f;
-		  }
-		  //calculate FFT
-
-		  perform_fft(fft_buffer_in_1,fft_buffer_out_1);
-
-
-		  for (int i = 0; i < sizeof(fft_buffer_out_1)/sizeof(fft_buffer_out_1[0]); i++)
-		  {
-			printf("%d, %f\r\n", i, fft_buffer_out_1[i]);
-		  }
-
-	      HALF_BUFFER_FULL_FLAG=0;
-
-
-
-
-			//Lower flag raised by ISR
-
-	    }
-
-	    if (FULL_BUFFER_FULL_FLAG)
-	    {
-	    	//convert first half of adc buffer into floating point
-		  for(uint16_t i=half_buffer_size; i<buffer_size;i++)
-		  {
-			  fft_buffer_in_2[i-half_buffer_size]=((float32_t)adc_buffer[i] / 4095.0f) * 3.3f;
-		  }
-		  //calculate FFT
-
-		  perform_fft(fft_buffer_in_2,fft_buffer_out_2);
-
-
-		  for (int i = 0; i < sizeof(fft_buffer_out_2)/sizeof(fft_buffer_out_2[0]); i++)
-		  {
-			printf("%d, %f\r\n", i, fft_buffer_out_2[i]);
-		  }
-
-		  FULL_BUFFER_FULL_FLAG = 0;
-
-	    }
 
   }
 
@@ -179,38 +151,40 @@ int main(void)
 /* USER CODE BEGIN 4 */
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	//Check to see if main program is still using ADC buffer data
-	if(!HALF_BUFFER_FULL_FLAG)
-	{
-
+if(!HALF_BUFFER_FULL_FLAG)
+{
+	for(int i=0;i<half_buffer_size;i++)
+		{
+			fft_buffer_in_1[i] = ((float)adc_buffer[i] / 4095.0f) * 3.3f;
+			scaling_multiplier_buffer_1=((float)adc_buffer[i] / 4095.0f) * 3.3f;
+		}
 		HALF_BUFFER_FULL_FLAG=1;
-	}
+}
 
-//	for(int i=0;i<half_buffer_size;i++)
-//	{
-//		dac_buffer[i]=adc_buffer[i];
-//	}
 
 }
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 
-//for(int i=half_buffer_size;i<buffer_size;i++)
-//{
-//	dac_buffer[i]=adc_buffer[i];
-//}
-////	printf("Sample Complete \n\r");
-
-	if(!FULL_BUFFER_FULL_FLAG)
+if(!FULL_BUFFER_FULL_FLAG)
 	{
-
+		for(int i=half_buffer_size;i<buffer_size;i++)
+		{
+		fft_buffer_in_2[i-half_buffer_size] = ((float)adc_buffer[i] / 4095.0f) * 3.3f;
+		scaling_multiplier_buffer_2=((float)adc_buffer[i] / 4095.0f) * 3.3f;
+		}
 		FULL_BUFFER_FULL_FLAG=1;
 	}
-
 }
 
 
 
+void TIM8_UP_IRQHandler(void)
+{
+	HAL_TIM_IRQHandler(&htim8);
+
+
+}
 
 
 

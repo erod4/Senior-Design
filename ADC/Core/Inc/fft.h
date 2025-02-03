@@ -23,6 +23,16 @@ void init_fft(uint16_t fft_length);
  */
 void perform_fft(float32_t* psrc,float32_t * pdst);
 
+/**
+ * @brief Performs an Inverse Fast Fourier Transform (IFFT) on the input data.
+ * @param[in]  psrc  Pointer to the input array containing frequency-domain samples.
+ * @param[out] pdst  Pointer to the output array for time-domain samples.
+ */
+void perform_ifft(float32_t* psrc, float32_t* pdst);
+
+void q_15_fft(float32_t*psrc);
+
+void q_15_fft_init(uint16_t fft_length);
 
 
 #endif /* INC_ADC_H_ */
