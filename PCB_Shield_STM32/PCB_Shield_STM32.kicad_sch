@@ -11,6 +11,306 @@
 		(company "Noisey Boyz")
 	)
 	(lib_symbols
+		(symbol "100SP1T1B1M1QEH:100SP1T1B1M1QEH"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "S"
+				(at -2.54 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "100SP1T1B1M1QEH"
+				(at -2.54 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "100SP1T1B1M1QEH:SW_100SP1T1B1M1QEH"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MF" "E-Switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "30.21 mm"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Package" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Price" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Check_prices" "https://www.snapeda.com/parts/100SP1T1B1M1QEH/E-Switch/view-part/?ref=eda"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "IPC 7351B"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "D"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/100SP1T1B1M1QEH/E-Switch/view-part/?ref=snap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MP" "100SP1T1B1M1QEH"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "\n                        \n                            Toggle Switch, 100 Series, SPDT, ON-NONE-ON, Sealed, 5A, 120VAC, 28VDC, Solder | E-Switch 100SP1T1B1M1QEH\n                        \n"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Availability" "In Stock"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "E-switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "100SP1T1B1M1QEH_0_0"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -5.08 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0) (xy 2.794 2.1336)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy 2.921 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 2.921 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -2.54)
+					(radius 0.3302)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 2.54)
+					(radius 0.3302)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Barrel_Jack_Switch"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -3919,139 +4219,6 @@
 				)
 			)
 		)
-		(symbol "Switch:SW_SPST"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_SPST"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Single Pole Single Throw (SPST) switch"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch lever"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_SPST_0_0"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 0.254) (xy 1.524 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_SPST_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "custom_library:TL074"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4935,6 +5102,12 @@
 		(uuid "121dc188-da20-4767-84e1-ec129abb17c6")
 	)
 	(junction
+		(at 314.706 52.324)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "195d2325-35e0-443e-a4c1-f48162ced794")
+	)
+	(junction
 		(at 210.82 223.774)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4989,13 +5162,7 @@
 		(uuid "4b329c58-ee2c-42c1-b019-5013f5068d37")
 	)
 	(junction
-		(at 281.94 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "58483323-6d3b-45b8-9f97-c4ceb52afe00")
-	)
-	(junction
-		(at 269.24 62.23)
+		(at 292.608 59.944)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5f50c5e9-8068-4421-b0ae-fca0d242dec3")
@@ -5682,7 +5849,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 62.23) (xy 269.24 64.77)
+			(xy 292.608 59.944) (xy 292.608 62.484)
 		)
 		(stroke
 			(width 0)
@@ -5762,16 +5929,6 @@
 	)
 	(wire
 		(pts
-			(xy 279.4 57.15) (xy 281.94 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27e2bd20-2337-4004-86a6-5103afce59cc")
-	)
-	(wire
-		(pts
 			(xy 99.568 193.548) (xy 99.568 200.914)
 		)
 		(stroke
@@ -5792,7 +5949,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 59.69) (xy 269.24 59.69)
+			(xy 286.258 57.404) (xy 292.608 57.404)
 		)
 		(stroke
 			(width 0)
@@ -5992,7 +6149,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 59.69) (xy 269.24 62.23)
+			(xy 292.608 57.404) (xy 292.608 59.944)
 		)
 		(stroke
 			(width 0)
@@ -6092,13 +6249,13 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 57.15) (xy 294.64 57.15)
+			(xy 335.788 59.944) (xy 335.788 52.324)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "565666ab-1a27-40b9-8a32-30700ce538cc")
+		(uuid "57f38318-1109-4f54-b46f-892e25a7cbf0")
 	)
 	(wire
 		(pts
@@ -6119,6 +6276,16 @@
 			(type default)
 		)
 		(uuid "590e8efe-120e-4335-a5c9-ca92c014a212")
+	)
+	(wire
+		(pts
+			(xy 314.706 52.324) (xy 311.912 52.324)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a075835-f444-4408-b742-763ff5f1940e")
 	)
 	(wire
 		(pts
@@ -6152,6 +6319,16 @@
 	)
 	(wire
 		(pts
+			(xy 311.912 57.404) (xy 318.008 57.404)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bcd8ebe-ad88-4646-af99-4c9df2a2a986")
+	)
+	(wire
+		(pts
 			(xy 60.96 44.45) (xy 57.15 44.45)
 		)
 		(stroke
@@ -6162,16 +6339,6 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 64.77) (xy 304.8 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f6342a9-e252-421b-a455-6b77bbcdc0aa")
-	)
-	(wire
-		(pts
 			(xy 328.168 216.916) (xy 338.836 216.916)
 		)
 		(stroke
@@ -6179,6 +6346,16 @@
 			(type default)
 		)
 		(uuid "5fce0ef2-2b9f-41e1-9cf4-142dda7e0381")
+	)
+	(wire
+		(pts
+			(xy 324.358 52.324) (xy 325.628 52.324)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60769c64-3c18-4641-b939-841778748694")
 	)
 	(wire
 		(pts
@@ -6202,23 +6379,23 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 62.23) (xy 269.24 62.23)
+			(xy 335.788 52.324) (xy 333.248 52.324)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63a45d67-c1c6-4818-a8ba-c2e3bc2cb8e5")
+	)
+	(wire
+		(pts
+			(xy 286.258 59.944) (xy 292.608 59.944)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "63dac3ad-8c6b-4082-95c9-3563a1158dea")
-	)
-	(wire
-		(pts
-			(xy 281.94 57.15) (xy 285.75 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "665b02ea-9992-4ae6-bf2d-b6d48c76da64")
 	)
 	(wire
 		(pts
@@ -6369,6 +6546,16 @@
 			(type default)
 		)
 		(uuid "7d62ea4e-7853-4eb5-b664-10109c9dbdb7")
+	)
+	(wire
+		(pts
+			(xy 318.008 57.404) (xy 318.008 65.278)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e526987-3768-465c-a53e-cc93e546cff8")
 	)
 	(wire
 		(pts
@@ -6622,16 +6809,6 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 57.15) (xy 302.26 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a26de912-50d1-404d-8e36-77bb612f8855")
-	)
-	(wire
-		(pts
 			(xy 116.84 113.03) (xy 124.46 113.03)
 		)
 		(stroke
@@ -6639,6 +6816,16 @@
 			(type default)
 		)
 		(uuid "a3ddb172-ee2c-46a6-8c6e-ae0f4f928cbe")
+	)
+	(wire
+		(pts
+			(xy 314.706 47.244) (xy 314.706 52.324)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3e52038-6573-4635-89f0-e55ff3b6c3c1")
 	)
 	(wire
 		(pts
@@ -6802,7 +6989,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 57.15) (xy 269.24 57.15)
+			(xy 286.258 54.864) (xy 296.672 54.864)
 		)
 		(stroke
 			(width 0)
@@ -6879,6 +7066,16 @@
 			(type default)
 		)
 		(uuid "c51d5953-5300-46b8-aeb1-d77f4c781918")
+	)
+	(wire
+		(pts
+			(xy 316.738 52.324) (xy 314.706 52.324)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8c61dfb-dfcc-48a0-a1d3-3b196e3c1c48")
 	)
 	(wire
 		(pts
@@ -7089,16 +7286,6 @@
 			(type default)
 		)
 		(uuid "e7bd748f-80c5-4a3a-ac47-a98d497499e3")
-	)
-	(wire
-		(pts
-			(xy 281.94 52.07) (xy 281.94 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb902af8-838d-46bd-8199-db8fd5993569")
 	)
 	(wire
 		(pts
@@ -8235,6 +8422,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 320.548 52.324 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1e4d3132-21f7-43dc-8635-ef063c013281")
+		(property "Reference" "R12"
+			(at 320.548 54.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 320.294 50.292 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
+			(at 320.548 54.102 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 320.548 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 320.548 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ed6d8068-5f55-4adf-abab-27f21a314f80")
+		)
+		(pin "1"
+			(uuid "648e5b6b-9f72-4f6a-bd1e-c58ae5828770")
+		)
+		(instances
+			(project "PCB_Shield_STM32"
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 247.142 233.934 0)
 		(unit 1)
@@ -8295,72 +8549,6 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 304.8 64.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "25cecfc1-7346-4424-9b24-e95bc6dab7b6")
-		(property "Reference" "#PWR038"
-			(at 304.8 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "AGND"
-			(at 304.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 304.8 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 304.8 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 304.8 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ce1164f7-0421-4038-bb8e-d4692db59c28")
-		)
-		(instances
-			(project "PCB_Shield_STM32"
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -8777,74 +8965,6 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "LCD1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 298.45 57.15 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "380b8bfd-abb2-4a01-af68-c23a93263a4b")
-		(property "Reference" "D1"
-			(at 300.0375 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 300.0375 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_THT:LED_D3.0mm"
-			(at 298.45 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 298.45 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 298.45 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "86dfca80-37d9-4183-90a2-0315ae4260bb")
-		)
-		(pin "2"
-			(uuid "86a7bd51-eead-4e57-9003-cce15205412e")
-		)
-		(instances
-			(project ""
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -9997,73 +10117,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 289.56 57.15 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5f05dac0-5ab4-492d-915c-4415a136a0aa")
-		(property "Reference" "R12"
-			(at 289.56 59.436 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "330"
-			(at 289.306 55.118 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 289.56 58.928 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 289.56 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 289.56 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1f0ee122-b0cc-4050-a2c6-d759cfe6462d")
-		)
-		(pin "1"
-			(uuid "ed900b8d-920b-4b46-b28d-f94e4ff31a3b")
-		)
-		(instances
-			(project "PCB_Shield_STM32"
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 60.96 240.792 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10200,7 +10253,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 269.24 64.77 0)
+		(at 292.608 62.484 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10209,7 +10262,7 @@
 		(fields_autoplaced yes)
 		(uuid "62216dc4-8e7a-4120-bcd3-d9031f79c7e7")
 		(property "Reference" "#PWR035"
-			(at 269.24 71.12 0)
+			(at 292.608 68.834 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10218,7 +10271,7 @@
 			)
 		)
 		(property "Value" "AGND"
-			(at 269.24 69.85 0)
+			(at 292.608 67.564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10226,7 +10279,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 269.24 64.77 0)
+			(at 292.608 62.484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10235,7 +10288,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 269.24 64.77 0)
+			(at 292.608 62.484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10244,7 +10297,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 269.24 64.77 0)
+			(at 292.608 62.484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10596,6 +10649,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 335.788 59.944 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7501ce10-c837-4d56-acd0-72be55c79d5a")
+		(property "Reference" "#PWR015"
+			(at 335.788 66.294 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "AGND"
+			(at 335.788 65.024 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 335.788 59.944 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 335.788 59.944 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 335.788 59.944 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3056b85b-ccb1-4217-8d2f-8915adac65f0")
+		)
+		(instances
+			(project "PCB_Shield_STM32"
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 67.31 204.724 270)
 		(unit 1)
@@ -10657,6 +10776,74 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 329.438 52.324 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7a0766c4-5ce2-4444-aac7-c4ec2c43f7b3")
+		(property "Reference" "D1"
+			(at 331.0255 44.704 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 331.0255 47.244 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D3.0mm"
+			(at 329.438 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 329.438 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 329.438 52.324 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f25b077-1d09-4f2a-8fd4-bc1cd7742b69")
+		)
+		(pin "2"
+			(uuid "7f103998-8f9b-4473-8f31-ba6ee7be26de")
+		)
+		(instances
+			(project "PCB_Shield_STM32"
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -11392,6 +11579,198 @@
 		)
 	)
 	(symbol
+		(lib_id "100SP1T1B1M1QEH:100SP1T1B1M1QEH")
+		(at 304.292 54.864 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "97efe34b-ad4e-410e-81fa-bb87b7da7228")
+		(property "Reference" "S1"
+			(at 304.038 57.912 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100SP1T1B1M1QEH"
+			(at 304.546 60.198 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "100SP1T1B1M1QEH:SW_100SP1T1B1M1QEH"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "E-Switch"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "30.21 mm"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/100SP1T1B1M1QEH/E-Switch/view-part/?ref=eda"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "IPC 7351B"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "D"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/100SP1T1B1M1QEH/E-Switch/view-part/?ref=snap"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "100SP1T1B1M1QEH"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "\n                        \n                            Toggle Switch, 100 Series, SPDT, ON-NONE-ON, Sealed, 5A, 120VAC, 28VDC, Solder | E-Switch 100SP1T1B1M1QEH\n                        \n"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "E-switch"
+			(at 304.292 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "64ab8b45-31f6-487c-9fcf-2f2d01826730")
+		)
+		(pin "1"
+			(uuid "bacbfc64-40d0-4f2c-8def-658c867183d5")
+		)
+		(pin "2"
+			(uuid "150bdc4b-9302-43cd-923c-d3f91a66f822")
+		)
+		(instances
+			(project ""
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "S1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 400.304 217.678 180)
 		(unit 1)
@@ -11587,71 +11966,6 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 281.94 57.15 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9d2f60cc-1c33-4390-b3ac-b7466e643c8f")
-		(property "Reference" "#FLG07"
-			(at 281.94 59.055 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 282.194 60.452 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 281.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 281.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 281.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2f14b9d3-60df-47e6-8210-69f46818c908")
-		)
-		(instances
-			(project "PCB_Shield_STM32"
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "#FLG07")
 					(unit 1)
 				)
 			)
@@ -11917,6 +12231,71 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 314.706 47.244 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "aa9b04f1-e101-490e-807c-94c2ed8df1a8")
+		(property "Reference" "#PWR012"
+			(at 314.706 51.054 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VIN"
+			(at 314.706 42.164 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 314.706 47.244 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 314.706 47.244 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 314.706 47.244 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "acd32744-0cae-4bf9-950a-2c727f7960dd")
+		)
+		(instances
+			(project "PCB_Shield_STM32"
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -12272,71 +12651,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 281.94 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "af2bcc24-f7df-45a4-8448-bc1032cc9d76")
-		(property "Reference" "#PWR037"
-			(at 281.94 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VIN"
-			(at 281.94 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 281.94 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 281.94 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 281.94 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7deb50a6-f195-425f-9037-bcfe1c5e361d")
-		)
-		(instances
-			(project "PCB_Shield_STM32"
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "#PWR037")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 60.96 228.092 180)
 		(unit 1)
@@ -12612,7 +12926,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Barrel_Jack_Switch")
-		(at 255.27 59.69 0)
+		(at 278.638 57.404 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12621,7 +12935,7 @@
 		(fields_autoplaced yes)
 		(uuid "b735451e-ec43-4f2b-bab7-60cd7ab15194")
 		(property "Reference" "J1"
-			(at 255.27 50.8 0)
+			(at 278.638 48.514 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12629,7 +12943,7 @@
 			)
 		)
 		(property "Value" "Barrel_Jack_Switch"
-			(at 255.27 53.34 0)
+			(at 278.638 51.054 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12637,7 +12951,7 @@
 			)
 		)
 		(property "Footprint" "Connector_BarrelJack:BarrelJack_Horizontal"
-			(at 256.54 60.706 0)
+			(at 279.908 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12646,7 +12960,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 256.54 60.706 0)
+			(at 279.908 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12655,7 +12969,7 @@
 			)
 		)
 		(property "Description" "DC Barrel Jack with an internal switch"
-			(at 255.27 59.69 0)
+			(at 278.638 57.404 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13926,6 +14240,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 318.008 65.278 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1880cc8-92ac-42ef-a386-1606e57870dd")
+		(property "Reference" "#PWR023"
+			(at 318.008 71.628 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "AGND"
+			(at 318.008 70.358 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 318.008 65.278 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 318.008 65.278 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 318.008 65.278 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "06e0adae-885a-4d54-b45a-a5242757a10a")
+		)
+		(instances
+			(project "PCB_Shield_STM32"
+				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 324.104 105.41 0)
 		(unit 1)
@@ -14311,74 +14691,6 @@
 			(project "PCB_Shield_STM32"
 				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
 					(reference "#PWR041")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_SPST")
-		(at 274.32 57.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f8f3cf80-2849-49af-8158-7b8fdaf2007e")
-		(property "Reference" "SW1"
-			(at 274.32 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_SPST"
-			(at 274.32 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_DIP_SPSTx01_Slide_9.78x4.72mm_W7.62mm_P2.54mm"
-			(at 274.32 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 274.32 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single Pole Single Throw (SPST) switch"
-			(at 274.32 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "b5523dc7-1dd5-43b5-aea8-2681104f18b1")
-		)
-		(pin "1"
-			(uuid "5f0e0b6c-273e-48f7-8091-a6f334b84e4e")
-		)
-		(instances
-			(project ""
-				(path "/c6ac8d79-2e78-43a6-80db-5a8dfa5afdfc"
-					(reference "SW1")
 					(unit 1)
 				)
 			)
