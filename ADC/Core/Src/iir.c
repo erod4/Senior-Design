@@ -1,17 +1,18 @@
 #include "iir.h"
+#include "arm_math.h"
 
-
-int lowpass_FIR_IIR_filter(int input)
+float32_t lowpass_FIR_IIR_filter(float32_t input)
 {
-	static long filter_reg;			//32-bit register
-	long filter_reg_store;			//Temp storage
+    // 32-bit float accumulator
+    static float filter_reg = 0.0f;
+    float filter_reg_store = filter_reg;
 
-	filter_reg_store=filter_reg;	//temp store last register val
+    // filter_reg = filter_reg - (filter_reg / 2^FILTER_SHIFT) + input
+    //            = filter_reg*(1 - 1/16) + input  (if FILTER_SHIFT=4)
+    filter_reg = filter_reg
+                 - (filter_reg / FILTER_SCALE)
+                 + input;
 
-	//Update register with the current input sample.
-	filter_reg=filter_reg-(filter_reg>>FILTER_SHIFT)*input;
-	//Update the FIR section and scale output .
-	return ((int)((filter_reg+filter_reg_store)>>(FILTER_SHIFT+1)));
-
-
+    // output = (filter_reg + filter_reg_store) / 2^(FILTER_SHIFT+1)
+    return (filter_reg + filter_reg_store) / (float)FILTER_SCALE_2;
 }

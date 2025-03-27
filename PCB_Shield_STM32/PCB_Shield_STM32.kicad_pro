@@ -61,25 +61,9 @@
       "drc_exclusions": [
         "lib_footprint_mismatch|26660000|41980000|6d2d301c-7239-44c4-8085-fb09b462d985|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|87665000|41980000|428517ac-2c13-4a29-afaf-02a313a033a7|00000000-0000-0000-0000-000000000000",
-        "silk_overlap|117924951|79305090|0a3affb7-59d7-4334-8352-24aafb33660e|26addffe-721e-449d-b315-c8429b21eeff",
-        "silk_overlap|118023954|81480701|0a3affb7-59d7-4334-8352-24aafb33660e|20348b13-d7a0-4ce6-b966-9684601f9c29",
-        "silk_overlap|118075951|49490910|eca136df-afaf-48bd-b9ef-43f5737b1730|04679fdd-b4bd-4d24-b01f-50f32f3a205d",
-        "silk_overlap|118105000|81906000|d817e714-6489-4d57-b9c7-a64e00ddaa33|20348b13-d7a0-4ce6-b966-9684601f9c29",
-        "silk_overlap|118174954|47315299|eca136df-afaf-48bd-b9ef-43f5737b1730|47fd95d0-6f31-4032-b51e-1c33c4a737fc",
-        "silk_overlap|118256000|46890000|742fd5be-e6e9-49ba-8fb7-b59c0af12b22|47fd95d0-6f31-4032-b51e-1c33c4a737fc",
-        "silk_overlap|119905000|81906000|fbb6b1e2-060e-48b9-a845-023d4114c42b|20348b13-d7a0-4ce6-b966-9684601f9c29",
-        "silk_overlap|119986046|81480701|77ab7ea8-2d35-4a6b-9eb9-14ba78fea00c|20348b13-d7a0-4ce6-b966-9684601f9c29",
-        "silk_overlap|120056000|46890000|1630b4f5-9574-4775-887a-f93daeb50c6e|47fd95d0-6f31-4032-b51e-1c33c4a737fc",
-        "silk_overlap|120085049|79305090|77ab7ea8-2d35-4a6b-9eb9-14ba78fea00c|26addffe-721e-449d-b315-c8429b21eeff",
-        "silk_overlap|120137046|47315299|198fe521-0a43-4d4f-ab16-0f41731afb8c|47fd95d0-6f31-4032-b51e-1c33c4a737fc",
-        "silk_overlap|120236049|49490910|198fe521-0a43-4d4f-ab16-0f41731afb8c|04679fdd-b4bd-4d24-b01f-50f32f3a205d",
-        "silk_overlap|37389000|106966000|f5087d10-f324-437d-bf6a-03424fbe9cb1|061ec358-d780-438c-b15c-78665cf41557",
-        "silk_overlap|57449090|109698951|31fe5c82-b8ff-4988-8b79-f3032fffcd9a|abeb1e29-ced4-4038-b79c-01a641dff137",
-        "silk_overlap|57449090|111859049|908307c0-176b-4a00-abf7-7d44456bfbc2|abeb1e29-ced4-4038-b79c-01a641dff137",
-        "silk_overlap|59624701|109797954|31fe5c82-b8ff-4988-8b79-f3032fffcd9a|1e49db96-ce57-45b7-974c-7eff992a8e43",
-        "silk_overlap|59624701|111760046|908307c0-176b-4a00-abf7-7d44456bfbc2|1e49db96-ce57-45b7-974c-7eff992a8e43",
-        "silk_overlap|60050000|109879000|3fe75564-271d-4fbf-b66c-8413b2eb5bb6|1e49db96-ce57-45b7-974c-7eff992a8e43",
-        "silk_overlap|60050000|111679000|23e55032-511c-4b1f-93e3-d9ba0761e8be|1e49db96-ce57-45b7-974c-7eff992a8e43"
+        "solder_mask_bridge|103662808|106971081|f6fabeaa-5efa-408e-846e-a9848b76b57b|2d80b6e4-0bd5-4416-9edd-ad719932df8e",
+        "solder_mask_bridge|116953647|107013739|3f627728-7a31-4057-a0dd-c04a628da708|64dd9c1b-cbc9-45c7-9603-2e9a825d2008",
+        "solder_mask_bridge|97945739|108241648|9c053394-d257-4b89-b024-de000e95b3c2|60310312-ec93-41a1-a8f0-3b63b9993588"
       ],
       "meta": {
         "version": 2
@@ -556,7 +540,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../Downloads/gerber_pcb/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
