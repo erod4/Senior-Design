@@ -32,44 +32,8 @@
 #include <UART.h>
 #include <math.h>
 #include <inttypes.h>
-/////////////////////////////////////////////////////////////////
-float32_t dummy_buffer[256] = {
-    409.136597f, -1.520004f, -0.461070f, -0.014361f, -0.454691f, -0.026311f, -0.446092f, -0.034129f,
-    -0.437714f, -0.037262f, -0.431940f, -0.036507f, -0.430396f, -0.033756f, -0.433518f, -0.031473f,
-    -0.440396f, -0.032000f, -0.449069f, -0.036876f, -0.457041f, -0.046411f, -0.462034f, -0.059589f,
-    -0.462602f, -0.074368f, -0.458556f, -0.088261f, -0.451029f, -0.099026f, -0.442133f, -0.105330f,
-    -0.434368f, -0.107113f, -0.429912f, -0.105607f, -0.430000f, -0.102999f, -0.434569f, -0.101786f,
-    -0.442275f, -0.104094f, -0.450895f, -0.111037f, -0.457925f, -0.122445f, -0.461316f, -0.136874f,
-    -0.460056f, -0.152040f, -0.454454f, -0.165467f, -0.446049f, -0.175176f, -0.437169f, -0.180272f,
-    -0.430291f, -0.181193f, -0.427295f, -0.179564f, -0.428979f, -0.177772f, -0.434787f, -0.178263f,
-    -0.442995f, -0.182849f, -0.451190f, -0.192205f, -0.456962f, -0.205662f, -0.458582f, -0.221419f,
-    -0.455503f, -0.237031f, -0.448508f, -0.250127f, -0.439491f, -0.259078f, -0.430920f, -0.263460f,
-    -0.425129f, -0.264177f, -0.423652f, -0.263213f, -0.426799f, -0.263049f, -0.433556f, -0.265981f,
-    -0.441867f, -0.273456f, -0.449253f, -0.285664f, -0.453464f, -0.301483f, -0.453161f, -0.318810f,
-    -0.448281f, -0.335150f, -0.440068f, -0.348323f, -0.430684f, -0.357113f, -0.422637f, -0.361587f,
-    -0.418029f, -0.363089f, -0.418006f, -0.363867f, -0.422364f, -0.366422f, -0.429665f, -0.372815f,
-    -0.437621f, -0.384068f, -0.443739f, -0.399883f, -0.446055f, -0.418734f, -0.443656f, -0.438301f,
-    -0.436974f, -0.456127f, -0.427640f, -0.470334f, -0.418026f, -0.480155f, -0.410569f, -0.486148f,
-    -0.407074f, -0.490067f, -0.408222f, -0.494320f, -0.413326f, -0.501362f, -0.420571f, -0.512933f,
-    -0.427512f, -0.529603f, -0.431770f, -0.550608f, -0.431701f, -0.574085f, -0.426871f, -0.597600f,
-    -0.418174f, -0.618843f, -0.407580f, -0.636313f, -0.397557f, -0.649742f, -0.390388f, -0.660181f,
-    -0.387504f, -0.669722f, -0.389071f, -0.680918f, -0.393959f, -0.696049f, -0.400036f, -0.716513f,
-    -0.404785f, -0.742441f, -0.406009f, -0.772674f, -0.402457f, -0.805113f, -0.394163f, -0.837345f,
-    -0.382442f, -0.867361f, -0.369505f, -0.894140f, -0.357809f, -0.918003f, -0.349362f, -0.940534f,
-    -0.345135f, -0.964178f, -0.344774f, -0.991621f, -0.346676f, -1.025034f, -0.348438f, -1.065579f,
-    -0.347519f, -1.113105f, -0.341918f, -1.166320f, -0.330744f, -1.223240f, -0.314413f, -1.281890f,
-    -0.294470f, -1.341014f, -0.273166f, -1.400619f, -0.252635f, -1.462181f, -0.234314f, -1.528518f,
-    -0.218371f, -1.603316f, -0.203543f, -1.690519f, -0.187314f, -1.793768f, -0.166408f, -1.916096f,
-    -0.137411f, -2.060065f, -0.097293f, -2.228386f, -0.043691f, -2.425112f, 0.025370f, -2.657329f,
-    0.112315f, -2.937573f, 0.221647f, -3.287472f, 0.362751f, -3.744215f, 0.555023f, -4.374178f,
-    0.839422f, -5.306731f, 1.311207f, -6.834430f, 2.245728f, -9.801772f, 4.912558f, -18.118254f,
-    61.381596f, -192.420532f, -7.632750f, 20.421156f, -4.016945f, 9.196051f, -2.897842f, 5.679187f,
-    -2.356097f, 3.941942f, -2.041358f, 2.894098f, -1.842153f, 2.182505f, -1.711913f, 1.656375f,
-    -1.627029f, 1.239185f, -1.573399f, 0.887366f, -1.541567f, 0.574183f, -1.525068f, 0.282370f
-};
 
-
-////////////////////////////////////////////////////////////////////
+#define NUM_MEASUREMENTS   50
 
 #define BUFFER_SIZE 		512
 #define HALF_BUFFER_SIZE 	256
@@ -92,10 +56,19 @@ float32_t iir_buffer_in_2		[FFT_BUFFER_SIZE/2];
 float32_t iir_buffer_out_1		[FFT_BUFFER_SIZE/2];
 float32_t iir_buffer_out_2		[FFT_BUFFER_SIZE/2];
 
+float32_t lcd_buffer_1			[FFT_BUFFER_SIZE/2];
+float32_t lcd_buffer_2			[FFT_BUFFER_SIZE/2];
+
 volatile uint8_t HALF_BUFFER_FULL_FLAG							=	0;
 volatile uint8_t FULL_BUFFER_FULL_FLAG							=	0;
+volatile uint8_t LCD_UPDATE_FLAG 								=	0;
 
 
+// Arrays to store WCET measurements
+uint32_t wcet_half_buffer[NUM_MEASUREMENTS];
+uint32_t wcet_full_buffer[NUM_MEASUREMENTS];
+uint8_t half_idx = 0;
+uint8_t full_idx = 0;
 
 static void MX_GPIO_Init(void);
 
@@ -131,24 +104,6 @@ int main(void)
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//Once converted to floating point the FFT is performed on the first half of buffer
-	perform_fft(dummy_buffer, fft_buffer_out_1);
-
-	//Take absolute magnitude of FFT output
-	arm_cmplx_mag_f32(fft_buffer_out_1,iir_buffer_in_1,(uint32_t)(FFT_BUFFER_SIZE/2));
-
-	//Do IIR filtering for each FFT value
-	for(int i=0;i<FFT_BUFFER_SIZE/2;i++)
-	{
-		printf("%d: %f\r\n",i,iir_buffer_in_1[i]);
-		//round magnitudes to nearest integer
-		iir_buffer_out_1[i]=lowpass_FIR_IIR_filter(iir_buffer_in_1[i]);
-	}
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////
-	for(int i=0;i<FFT_BUFFER_SIZE/2;i++)
-	{
-		printf("%d: %f\r\n", i, iir_buffer_out_1[i]);
-	}
 
 
 
@@ -158,6 +113,11 @@ int main(void)
 
 	if(HALF_BUFFER_FULL_FLAG)
 	{
+		// Get start time from Timer8
+		uint32_t start_time = __HAL_TIM_GET_COUNTER(&htim8);
+
+
+
 		//Once converted to floating point the FFT is performed on the first half of buffer
 		perform_fft(fft_buffer_in_1, fft_buffer_out_1);
 
@@ -170,7 +130,29 @@ int main(void)
 			iir_buffer_out_1[i]=lowpass_FIR_IIR_filter(iir_buffer_in_1[i]);
 		}
 		//Lastly store in a LCD screen buffer
+		for(int i=0; i<FFT_BUFFER_SIZE/2;i++)
+		{
+			lcd_buffer_1[i]=iir_buffer_out_1[i];
+		}
+		// Get end time from Timer8 and compute elapsed time
+		uint32_t end_time = __HAL_TIM_GET_COUNTER(&htim8);
+		uint32_t elapsed;
+		// Handle wrap-around (assuming TIM8 period is htim8.Init.Period)
+		if (end_time >= start_time)
+		{
+			elapsed = end_time - start_time;
+		}
+		else
+		{
+			elapsed = (htim8.Init.Period + 1 - start_time) + end_time;
+		}
 
+		// Store the measurement if we haven't reached NUM_MEASUREMENTS yet
+		if (half_idx < NUM_MEASUREMENTS)
+		{
+			wcet_half_buffer[half_idx] = elapsed;
+			half_idx++;
+		}
 		//Measure WCET then make an ISR to have LCD update values at that time
 
 		HALF_BUFFER_FULL_FLAG=0;
@@ -178,6 +160,8 @@ int main(void)
 	//Once converted to floating point the FFT is performed on the second half of buffer
 	if(FULL_BUFFER_FULL_FLAG)
 	{
+        uint32_t start_time = __HAL_TIM_GET_COUNTER(&htim8);
+
 		perform_fft(fft_buffer_in_2, fft_buffer_out_2);
 
 		//Take absolute magnitude of FFT output
@@ -188,13 +172,61 @@ int main(void)
 		{
 			iir_buffer_out_2[i]=lowpass_FIR_IIR_filter(iir_buffer_in_2[i]);
 		}
-		//Lastly store in a LCD screen buffer
 
+		//Lastly store in a LCD screen buffer
+		for(int i=0; i<FFT_BUFFER_SIZE/2;i++)
+		{
+			lcd_buffer_2[i]=iir_buffer_out_2[i];
+		}
 		//Measure WCET then make an ISR to have LCD update values at that time
+		uint32_t end_time = __HAL_TIM_GET_COUNTER(&htim8);
+		uint32_t elapsed;
+		if (end_time >= start_time)
+		{
+			elapsed = end_time - start_time;
+		}
+		else
+		{
+			elapsed = (htim8.Init.Period + 1 - start_time) + end_time;
+		}
+
+		if (full_idx < NUM_MEASUREMENTS)
+		{
+			wcet_full_buffer[full_idx] = elapsed;
+			full_idx++;
+		}
 
 		FULL_BUFFER_FULL_FLAG=0;
 	}
+	// Once both half-buffer and full-buffer measurements have been collected, print them
+	if ((half_idx >= NUM_MEASUREMENTS) && (full_idx >= NUM_MEASUREMENTS))
+	{
+		// Print half-buffer WCET measurements
+		printf("Half Buffer WCET Measurements (in timer ticks):\r\n");
+		for (int i = 0; i < NUM_MEASUREMENTS; i++)
+		{
+			printf("%lu, ", wcet_half_buffer[i]);
+		}
+		printf("\r\n");
 
+		// Print full-buffer WCET measurements
+		printf("Full Buffer WCET Measurements (in timer ticks):\r\n");
+		for (int i = 0; i < NUM_MEASUREMENTS; i++)
+		{
+			printf("%lu, ", wcet_full_buffer[i]);
+		}
+		printf("\r\n");
+
+		// Reset indices if you wish to start over (or halt further measurements)
+		half_idx = 0;
+		full_idx = 0;
+	}
+
+	if(LCD_UPDATE_FLAG)
+	{
+
+		LCD_UPDATE_FLAG=0;
+	}
 
 
   }
@@ -263,7 +295,7 @@ if(!FULL_BUFFER_FULL_FLAG)
 void TIM8_UP_IRQHandler(void)
 {
 	HAL_TIM_IRQHandler(&htim8);
-
+//	LCD_UPDATE_FLAG=1;
 
 }
 
