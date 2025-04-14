@@ -1,0 +1,16 @@
+cmsisdsp
+cmsisdsp_basic
+cmsisdsp_bayes
+cmsisdsp_complexf
+cmsisdsp_controller
+cmsisdsp_distance
+cmsisdsp_fastmath
+cmsisdsp_filtering
+cmsisdsp_interpolation
+cmsisdsp_matrix
+cmsisdsp_quaternion
+cmsisdsp_statistics
+cmsisdsp_support
+cmsisdsp_svm
+cmsisdsp_transform
+cmsisdsp_window

@@ -10,8 +10,8 @@
 
 #include "stm32g4xx_hal.h"
 
-extern DAC_HandleTypeDef hdac1;
-extern DMA_HandleTypeDef hdma_dac1_ch1;
+//extern DAC_HandleTypeDef hdac1;
+//extern DMA_HandleTypeDef hdma_dac1_ch1;
 
 void MX_DAC1_Init(void);
 

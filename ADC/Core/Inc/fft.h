@@ -8,8 +8,9 @@
 #include "../Inc/main.h"
 
 
-
-
+void init_q15_fft(void);
+void q_15_fft(int16_t* psrc, int16_t* pdst);
+int16_t convert_adc_to_q15(uint16_t adc_val);
 /**
  * Initializes Q15 fft
  */
@@ -30,7 +31,7 @@ void perform_fft(float32_t* psrc,float32_t * pdst);
  */
 void perform_ifft(float32_t* psrc, float32_t* pdst);
 
-void q_15_fft(float32_t*psrc);
+
 
 void q_15_fft_init(uint16_t fft_length);
 

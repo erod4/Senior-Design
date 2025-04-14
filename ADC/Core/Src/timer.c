@@ -13,9 +13,9 @@ void MX_TIM8_Init(void)
 	__HAL_RCC_TIM8_CLK_ENABLE();
 
 	htim8.Instance=TIM8;
-	htim8.Init.Prescaler=256-1;
+	htim8.Init.Prescaler=4096-1;
 	htim8.Init.CounterMode=TIM_COUNTERMODE_UP;
-	htim8.Init.Period=8534-1;
+	htim8.Init.Period=2159-1;
 	htim8.Init.AutoReloadPreload=TIM_AUTORELOAD_PRELOAD_DISABLE;
 	if(HAL_TIM_Base_Init(&htim8)!=HAL_OK)
 	{
@@ -52,9 +52,9 @@ void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 16-1;
+  htim7.Init.Prescaler = 65500-1;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 15-1;
+  htim7.Init.Period = 17-1;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {

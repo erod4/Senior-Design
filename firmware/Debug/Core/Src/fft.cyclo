@@ -1,0 +1,6 @@
+../Core/Src/fft.c:20:9:convert_adc_to_q15	1
+../Core/Src/fft.c:30:6:init_q15_fft	1
+../Core/Src/fft.c:35:6:q_15_fft	1
+../Core/Src/fft.c:41:6:init_fft	2
+../Core/Src/fft.c:54:6:perform_fft	1
+../Core/Src/fft.c:63:6:perform_ifft	1

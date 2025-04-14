@@ -1,0 +1,17 @@
+../Core/Src/lcd.c:43:6:SPI_init	8	static
+../Core/Src/lcd.c:48:6:LCD_reset	8	static
+../Core/Src/lcd.c:55:6:transferComm	16	static
+../Core/Src/lcd.c:63:6:transferData	16	static
+../Core/Src/lcd.c:71:6:LCD_init	8	static
+../Core/Src/lcd.c:172:6:drawBackground	24	static
+../Core/Src/lcd.c:193:6:drawRectangle	56	static
+../Core/Src/lcd.c:231:6:drawBetterBar	32	static
+../Core/Src/lcd.c:235:6:eraseBar	24	static
+../Core/Src/lcd.c:238:6:LCD_Fill_Color	32	static
+../Core/Src/lcd.c:274:6:dma_write_data	24	static
+../Core/Src/lcd.c:299:6:LCD_SetAddressWindow	48	static
+../Core/Src/lcd.c:333:6:drawRectangleDMA	256	static
+../Core/Src/lcd.c:368:6:updateBarGraph	48	static
+../Core/Src/lcd.c:396:6:LCD_WriteChar1206	184	static
+../Core/Src/lcd.c:434:6:LCD_WriteString1206	40	static
+../Core/Src/lcd.c:447:6:LCD_WriteStringAtBar	40	static

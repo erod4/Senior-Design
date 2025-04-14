@@ -59,11 +59,8 @@
         }
       ],
       "drc_exclusions": [
-        "lib_footprint_mismatch|26660000|41980000|6d2d301c-7239-44c4-8085-fb09b462d985|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|87665000|41980000|428517ac-2c13-4a29-afaf-02a313a033a7|00000000-0000-0000-0000-000000000000",
-        "solder_mask_bridge|103662808|106971081|f6fabeaa-5efa-408e-846e-a9848b76b57b|2d80b6e4-0bd5-4416-9edd-ad719932df8e",
-        "solder_mask_bridge|116953647|107013739|3f627728-7a31-4057-a0dd-c04a628da708|64dd9c1b-cbc9-45c7-9603-2e9a825d2008",
-        "solder_mask_bridge|97945739|108241648|9c053394-d257-4b89-b024-de000e95b3c2|60310312-ec93-41a1-a8f0-3b63b9993588"
+        "solder_mask_bridge|104630354|105312738|9c053394-d257-4b89-b024-de000e95b3c2|60310312-ec93-41a1-a8f0-3b63b9993588",
+        "solder_mask_bridge|110070000|105241200|f6fabeaa-5efa-408e-846e-a9848b76b57b|2d80b6e4-0bd5-4416-9edd-ad719932df8e"
       ],
       "meta": {
         "version": 2
@@ -543,7 +540,7 @@
       "plot": "../../../Downloads/gerber_pcb/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../../Downloads/PCB_Shield_STM32.step",
       "svg": "",
       "vrml": ""
     },
