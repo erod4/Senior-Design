@@ -60,24 +60,16 @@ TIM_HandleTypeDef htim7;
 /* USER CODE BEGIN PV */
 // Bar parameters for testing the drawing functions.
 
-#define BUFFER_SIZE			64
-#define HALF_BUFFER_SIZE 	32
-#define FFT_BUFFER_SIZE 	32
+#define BUFFER_SIZE			128
+#define HALF_BUFFER_SIZE 	64
+#define FFT_BUFFER_SIZE 	64
 
 #define LCD_SCALE_FACTOR	30
 
 static long filter_registers[FFT_BUFFER_SIZE/2];
 
-float32_t test_samples[32] = { 1.6500f, 2.7278f, 2.5653f, 2.1711f, 2.6331f, 2.9200f, 2.0523f, 1.2561f, 1.7152f, 2.3414f, 1.9733f, 1.6039f, 2.2263f, 2.6791f, 1.8740f, 0.9950f, 1.2680f, 1.7139f, 1.3013f, 1.1181f, 2.1731f, 3.2260f, 3.0366f, 2.6137f, 3.0453f, 3.3000f, 2.3987f, 1.5675f, 1.9905f, 2.5794f, 2.1731f, 1.7647f };
-float32_t test_samples_reset[32] = { 1.6500f, 2.7278f, 2.5653f, 2.1711f, 2.6331f, 2.9200f, 2.0523f, 1.2561f, 1.7152f, 2.3414f, 1.9733f, 1.6039f, 2.2263f, 2.6791f, 1.8740f, 0.9950f, 1.2680f, 1.7139f, 1.3013f, 1.1181f, 2.1731f, 3.2260f, 3.0366f, 2.6137f, 3.0453f, 3.3000f, 2.3987f, 1.5675f, 1.9905f, 2.5794f, 2.1731f, 1.7647f };
 
-void reset_data()
-{
-	for(int i=0;i<32;i++)
-	{
-		test_samples[i]=test_samples_reset[i];
-	}
-}
+
 uint32_t adc_buffer				[BUFFER_SIZE];				//Holds DMA data [0...HALF_BUFFER_SIZE-1,HALF_BUFFER_SIZE...BUFFER_SIZE-1]
 uint32_t dac_buffer				[BUFFER_SIZE];				//ignore (this buffer is to output data via the DAC, which we dont use)
 
@@ -194,7 +186,7 @@ int main(void)
 	  					iir_buffer_out_1[i]=lowpass_IIR_filter((int)(round(iir_buffer_in_1[i])),&filter_registers[i]);
 	  				}
 	  		//Lastly store in a LCD screen buffer
-	  		int temp=15;
+	  		int temp=31;
 	  		for(int i=0; i<FFT_BUFFER_SIZE/2;i++)
 	  		{
 	  			//Values inside update bar graph function should be reversed (dont touch)
@@ -229,7 +221,7 @@ int main(void)
 	  		}
 
 	  		//Lastly store in a LCD screen buffer
-	  		int temp=15;
+	  		int temp=31;
 	  		for(int i=0; i<FFT_BUFFER_SIZE/2;i++)
 	  		{
 				lcd_buffer_2[temp]=(int32_t)(iir_buffer_out_2[i]*(LCD_SCALE_FACTOR));

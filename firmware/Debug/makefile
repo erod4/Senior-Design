@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: firmware.elf secondary-outputs
 
 # Tool invocations
-firmware.elf firmware.map: $(OBJS) $(USER_OBJS) /Users/enrique/STM32CubeIDE/workspace_1.17.0/lcd_test/STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/enrique/STM32CubeIDE/workspace_1.17.0/lcd_test/STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="firmware.map" -Wl,--gc-sections -static -L"/Users/enrique/STM32CubeIDE/workspace_1.17.0/lcd_test/Drivers/CMSIS/DSP_DRIVERS/Lib/GCC" -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+firmware.elf firmware.map: $(OBJS) $(USER_OBJS) /Users/enrique/Downloads/Senior-Design/firmware/STM32G491RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/enrique/Downloads/Senior-Design/firmware/STM32G491RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="firmware.map" -Wl,--gc-sections -static -L"/Users/enrique/Downloads/Senior-Design/firmware/Drivers/CMSIS/DSP_DRIVERS/Lib/GCC" -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

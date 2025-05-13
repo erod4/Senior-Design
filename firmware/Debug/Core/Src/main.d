@@ -37,7 +37,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_usart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_usart_ex.h \
- /Users/enrique/STM32CubeIDE/workspace_1.17.0/lcd_test/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h \
+ /Users/enrique/Downloads/Senior-Design/firmware/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h ../Core/Inc/UART.h \
  ../Core/Inc/lcd.h ../Core/Inc/fft.h ../Core/Inc/main.h ../Core/Inc/iir.h
 ../Core/Inc/main.h:
@@ -79,7 +79,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_usart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_usart_ex.h:
-/Users/enrique/STM32CubeIDE/workspace_1.17.0/lcd_test/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:
+/Users/enrique/Downloads/Senior-Design/firmware/Drivers/CMSIS/DSP_DRIVERS/Include/arm_math.h:
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../Core/Inc/UART.h:
 ../Core/Inc/lcd.h:

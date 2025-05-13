@@ -16,7 +16,7 @@ extern DMA_HandleTypeDef hdma_spi1_tx;
 extern DMA_HandleTypeDef hdma_spi1_rx;
 extern SPI_HandleTypeDef hspi1;
 
-#define NUM_BARS            16
+#define NUM_BARS            32
 #define MAX_SCREEN_HEIGHT   320
 #define MIN_SCREEN_HEIGHT   0
 #define FONT_WIDTH  		6

@@ -1,9 +1,4 @@
-/*
- * lcd.c
- *
- *  Created on: Apr 5, 2025
- *      Author: enrique
- */
+
 
 #include "main.h"
 #include "lcd.h"
@@ -17,27 +12,28 @@
 
  DMA_HandleTypeDef hdma_spi1_rx;
 
-// uint16_t bars_x[] = {
-//     14, 28, 43, 57, 72, 86, 101, 115, 130, 144, 159, 173,
-//     188, 202, 217, 231, 246, 260, 275, 289, 304, 318, 333,
-//     347, 362, 376, 391, 405, 420, 434, 449, 463
-// };
-// uint16_t bars_x[] = {
-//     15, 27, 44, 56, 73, 85, 102, 114, 131, 143, 160, 172,
-//     189, 201, 218, 230, 247, 259, 276, 288, 305, 317, 334, 346,
-//     363, 375, 392, 404, 421, 433, 450, 462
-// };
-// uint16_t bars_x[] = {
-//     16, 26, 45, 55, 74, 84, 103, 113, 132, 142, 161, 171,
-//     190, 200, 219, 229, 248, 258, 277, 287, 306, 316, 335, 345,
-//     364, 374, 393, 403, 422, 432, 451, 461
-// };
- uint16_t bars_x[] = {
-     17, 25, 46, 54, 75, 83, 104, 112, 133, 141, 162, 170,
-     191, 199, 220, 228, 249, 257, 278, 286, 307, 315, 336, 344,
-     365, 373, 394, 402, 423, 431, 452, 460
+
+ uint16_t bars_x[64] = {
+      5,   9,  20,  24,  35,  39,  50,  54,
+     65,  69,  80,  84,  95,  99, 110, 114,
+    125, 129, 140, 144, 155, 159, 170, 174,
+    185, 189, 200, 204, 215, 219, 230, 234,
+    245, 249, 260, 264, 275, 279, 290, 294,
+    305, 309, 320, 324, 335, 339, 350, 354,
+    365, 369, 380, 384, 395, 399, 410, 414,
+    425, 429, 440, 444, 455, 459, 470, 474
  };
-uint16_t DMA_MIN_SIZE = 16;
+ uint16_t colors[8] = {
+   0x00FF,  //
+   0xFF00,  //
+   0xF0F0,
+   0x0F0F,
+   0xAAAA,
+   0xA0A0,
+   0x0A0A,
+   0xAA00
+ };
+uint16_t DMA_MIN_SIZE = 32;
 uint16_t disp_buf[320 * 5];
 
 void SPI_init(void) {
@@ -367,92 +363,55 @@ void drawRectangleDMA(uint16_t xStart, uint16_t xEnd, uint16_t yStart, uint16_t 
 
 void updateBarGraph(int32_t *barHeights)
 {
-    // Assume we have 16 bars, so bars_x must have 17 entries.
-    // Adjust bars_x if needed so that it covers the entire horizontal range.
-    for (uint8_t i = 0; i < 16; i++)
+    static int32_t prevHeights[NUM_BARS] = {0};
+
+    for (uint8_t i = 0; i < NUM_BARS; i++)
     {
-        // Get the x-axis start and end (inclusive) for this bar.
-        // Subtract one from xEnd so the columns don’t overlap.
         uint16_t xStart = bars_x[2*i];
-        uint16_t xEnd   = bars_x[2*i+1] ;
+        uint16_t xEnd   = bars_x[2*i+1];
 
-        // First, clear the entire vertical area for this bar column.
-        // Here, we assume MAX_SCREEN_HEIGHT is defined (for example, 480).
-        drawRectangleDMA(xStart, xEnd, 0, MAX_SCREEN_HEIGHT - 1, BLACK);  // 0x0000 = black
+        int32_t oldH = prevHeights[i];
+        int32_t newH = barHeights[i];
 
-        // Then, draw the new bar.
-        // We assume barHeights[i] represents the bar's height in pixels from the bottom.
-        if (barHeights[i] > 0)
+        // clamp heights
+        if (newH < 0) newH = 0;
+        if (newH > MAX_SCREEN_HEIGHT) newH = MAX_SCREEN_HEIGHT;
+        if (oldH < 0) oldH = 0;
+        if (oldH > MAX_SCREEN_HEIGHT) oldH = MAX_SCREEN_HEIGHT;
+
+        uint16_t yOldTop = (oldH == 0)
+                          ? (MAX_SCREEN_HEIGHT - 1)
+                          : (MAX_SCREEN_HEIGHT - oldH);
+        uint16_t yNewTop = (newH == 0)
+                          ? (MAX_SCREEN_HEIGHT - 1)
+                          : (MAX_SCREEN_HEIGHT - newH);
+
+        // pick which color‐slot based on bar index
+        // each color covers 4 bars
+        uint8_t colorSlot = (i / 4) % (sizeof(colors)/sizeof(colors[0]));
+        uint16_t drawColor = colors[colorSlot];
+
+        if (newH < oldH)
         {
-
-            uint16_t yTop    = MAX_SCREEN_HEIGHT - barHeights[i]<=0?0: MAX_SCREEN_HEIGHT - barHeights[i];
-
-            uint16_t yBottom = MAX_SCREEN_HEIGHT - 1 ;
-            drawRectangleDMA(xStart, xEnd, yTop, yBottom, WHITE);  // 0xFFFF = white (bar color)
+            // erase the gap in BLACK
+            drawRectangleDMA(
+              xStart, xEnd,
+              yOldTop,
+              yNewTop,
+              BLACK
+            );
         }
-    }
-}
-
-void LCD_WriteChar1206(uint16_t x, uint16_t y, char c, uint16_t fgColor, uint16_t bgColor) {
-    // Only draw printable ASCII characters (from space ' ' to '~')
-    if (c < 32 || c > 126) {
-        return;
-    }
-
-    // Calculate index into asc2_1206 (offset by 32)
-    uint8_t index = c - 32;
-
-    // Create a buffer to hold the pixel data for one character.
-    // There are FONT_WIDTH * FONT_HEIGHT pixels; each pixel is 16-bit.
-    uint16_t pixelBuffer[FONT_WIDTH * FONT_HEIGHT];
-
-    // For each row of the character
-    for (int row = 0; row < FONT_HEIGHT; row++) {
-        // Get the pattern for the row.
-        // The font data is stored as 12 bytes per character.
-        uint8_t pattern = asc2_1206[index][row];
-
-        // For each column (bit) in the row
-        // Note: We assume that only the lower 6 bits of each byte are used.
-        for (int col = 0; col < FONT_WIDTH; col++) {
-            // Reverse the bit order if the leftmost pixel is stored in bit (FONT_WIDTH-1)
-            if (pattern & (1 << (FONT_WIDTH - 1 - col))) {
-                pixelBuffer[row * FONT_WIDTH + col] = fgColor;
-            } else {
-                pixelBuffer[row * FONT_WIDTH + col] = bgColor;
-            }
+        else if (newH > oldH)
+        {
+            // draw the extension in the selected color
+            drawRectangleDMA(
+              xStart, xEnd,
+              yNewTop,
+              yOldTop,
+              drawColor
+            );
         }
+
+        prevHeights[i] = newH;
     }
-
-    // Set the LCD's address window to cover the area for this character.
-    LCD_SetAddressWindow(x, y, x + FONT_WIDTH - 1, y + FONT_HEIGHT - 1);
-
-    // Write the pixel data to the LCD (using DMA).
-    dma_write_data((uint8_t*)pixelBuffer, sizeof(pixelBuffer));
-}
-
-void LCD_WriteString1206(uint16_t x, uint16_t y, const char *str, uint16_t fgColor, uint16_t bgColor) {
-    while (*str) {
-        // Draw the current character.
-        LCD_WriteChar1206(x, y, *str, fgColor, bgColor);
-
-        // Advance the x coordinate by the width of one character.
-        x += FONT_WIDTH;
-
-        // Move to the next character in the string.
-        str++;
-    }
-}
-
-void LCD_WriteStringAtBar(uint8_t barIndex, uint16_t y, const char *str, uint16_t fgColor, uint16_t bgColor) {
-    // Ensure barIndex is within valid range (0 to 15)
-    if (barIndex >= 16) {
-        return;
-    }
-
-    // Get the starting x-coordinate from bars_x array (each bar uses two consecutive entries)
-    uint16_t x = bars_x[barIndex * 2];
-
-    // Write the string at the computed (x, y) using the 12x6 font function.
-    LCD_WriteString1206(x, y, str, fgColor, bgColor);
 }
